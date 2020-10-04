@@ -4,23 +4,17 @@
  - Subscribe : https://www.youtube.com/haerulmuttaqin                         -
  - Copyright (c) 2019. All rights reserved                                    -
  -----------------------------------------------------------------------------*/
-package com.haerul.foodsapp.api;
+package com.haerul.foodsapp.view.home;
 
 import com.haerul.foodsapp.model.Categories;
 import com.haerul.foodsapp.model.Meals;
 
-import retrofit2.Call;
-import retrofit2.http.GET;
-import retrofit2.http.Query;
+import java.util.List;
 
-public interface FoodApi {
-
-    @GET("latest.php")
-    Call<Meals> getMeal();
-
-    @GET("categories.php")
-    Call<Categories> getCategories();
-
-    @GET("filter.php")
-    Call<Meals> getMealByCategory(@Query("c") String category);
+public interface HomeView {
+    void showLoading();
+    void hideLoading();
+    void setMeal(List<Meals.Meal> meal);
+    void setCategory(List<Categories.Category> category);
+    void onErrorLoading(String message);
 }

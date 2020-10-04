@@ -4,23 +4,20 @@
  - Subscribe : https://www.youtube.com/haerulmuttaqin                         -
  - Copyright (c) 2019. All rights reserved                                    -
  -----------------------------------------------------------------------------*/
-package com.haerul.foodsapp.api;
+package com.haerul.foodsapp;
 
-import com.haerul.foodsapp.model.Categories;
-import com.haerul.foodsapp.model.Meals;
+import org.junit.Test;
 
-import retrofit2.Call;
-import retrofit2.http.GET;
-import retrofit2.http.Query;
+import static org.junit.Assert.*;
 
-public interface FoodApi {
-
-    @GET("latest.php")
-    Call<Meals> getMeal();
-
-    @GET("categories.php")
-    Call<Categories> getCategories();
-
-    @GET("filter.php")
-    Call<Meals> getMealByCategory(@Query("c") String category);
+/**
+ * Example local unit test, which will execute on the development machine (host).
+ *
+ * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
+ */
+public class ExampleUnitTest {
+    @Test
+    public void addition_isCorrect() {
+        assertEquals(4, 2 + 2);
+    }
 }
