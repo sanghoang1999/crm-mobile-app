@@ -1,6 +1,6 @@
 import React from 'react';
 import {TouchableOpacity} from 'react-native';
-import {ButtonView, ButtonText} from './CommonButtonStyle';
+import {ButtonView, ButtonText, ButtonTouchView} from './CommonButtonStyle';
 
 const CommonButton = ({
   title,
@@ -15,9 +15,16 @@ const CommonButton = ({
   paddingVertical,
   marginHorizontal,
   textDecoration,
+  marginVertical,
+  width,
 }) => {
   return (
-    <TouchableOpacity activeOpacity={0.8} onPress={onPress}>
+    <ButtonTouchView
+      marginVertical={marginVertical}
+      marginHorizontal={marginHorizontal}
+      width={width}
+      activeOpacity={0.8}
+      onPress={onPress}>
       <ButtonView
         {...{
           buttonColor,
@@ -26,14 +33,12 @@ const CommonButton = ({
           borderColor,
           marginBottom,
           paddingVertical,
-          marginHorizontal,
         }}>
-        <ButtonText
-          {...{textColor, fontSize, textDecoration}}>
+        <ButtonText {...{textColor, fontSize, textDecoration}}>
           {title}
         </ButtonText>
       </ButtonView>
-    </TouchableOpacity>
+    </ButtonTouchView>
   );
 };
 

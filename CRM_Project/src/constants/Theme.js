@@ -5,6 +5,8 @@ export const COLORS = {
     APP_COLOR: '#536dfe',
     RED :'#ff0000',
     BLACK: '#000000',
+    GREY: '#bcbcbc',
+    PLACEHOLDER_APP_COLOR : '#E5E9FF',
 }
 export const PADDING = {
     SMALL: 5,

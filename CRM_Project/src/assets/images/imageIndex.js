@@ -8,4 +8,6 @@ export const ImageIndex = {
   ic_customer_focused: require('./ic_customer_focused.png'),
   ic_note: require('./ic_note.png'),
   ic_note_focused: require('./ic_note_focused.png'),
+  ic_user: require('./ic_user.png'),
+  ic_passwrod: require('./ic_password.png'),
 };

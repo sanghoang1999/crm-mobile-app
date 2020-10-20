@@ -1,6 +1,15 @@
 import styled from 'styled-components/native';
-import {COLORS, PADDING} from '../../../constants/Theme';
+import {COLORS, PADDING, viewportWidth} from '../../../constants/Theme';
 
+export const ButtonTouchView = styled.TouchableOpacity`
+  ${(props) => (props.width ? `width: ${props.width}px;` : '')};
+  ${(props) =>
+    props.marginVertical ? `margin-vertical: ${props.marginVertical}px;` : ''}
+  ${(props) =>
+    props.marginHorizontal
+      ? `margin-horizontal: ${props.marginHorizontal}px;`
+      : ''};
+`;
 export const ButtonView = styled.View`
   border-radius: 50px;
   background-color: ${(props) =>
@@ -19,10 +28,6 @@ export const ButtonView = styled.View`
     props.paddingHorizontal
       ? `padding-horizontal: ${props.paddingHorizontal}px;`
       : ''}
-  ${(props) =>
-    props.marginHorizontal
-      ? `margin-horizontal: ${props.marginHorizontal}px;`
-      : ''};
 `;
 
 export const ButtonText = styled.Text`
