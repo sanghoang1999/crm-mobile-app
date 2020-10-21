@@ -3,13 +3,17 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "start": "react-native start",
+    "android": "npx react-native run-android",
+    "ios": "npx react-native run-ios",
+    "start": "npx react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "clean": "cd android && gradlew clean && cd .."
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-native-fontawesome": "^0.2.6",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/bottom-tabs": "^5.9.2",
     "@react-navigation/native": "^5.7.6",
@@ -18,9 +22,12 @@
     "react": "16.13.1",
     "react-native": "0.63.3",
     "react-native-gesture-handler": "^1.8.0",
+    "react-native-paper": "^4.2.0",
     "react-native-reanimated": "^1.13.1",
     "react-native-safe-area-context": "^3.1.8",
     "react-native-screens": "^2.11.0",
+    "react-native-svg": "^12.1.0",
+    "react-native-vector-icons": "^7.1.0",
     "styled-components": "^5.2.0"
   },
   "devDependencies": {
