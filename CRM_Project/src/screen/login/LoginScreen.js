@@ -95,7 +95,7 @@ const LoginScreen = ({navigation, route}) => {
                 </InputView>
                 <InputView>
                   <IconContainer
-                    source={ImageIndex.ic_passwrod}
+                    source={ImageIndex.ic_password}
                     width={15}
                     height={15}
                   />
