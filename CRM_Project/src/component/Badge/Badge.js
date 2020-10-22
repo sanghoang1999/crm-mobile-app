@@ -2,10 +2,10 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import {styles} from './styles';
 
-const Badge = (props) => {
+const Badge = ({value}) => {
   return (
     <View style={styles.badge}>
-      <Text style={{fontSize: 20, color: 'white'}}>{props.value}</Text>
+      <Text style={{fontSize: 20, color: 'white'}}>{value}</Text>
     </View>
   );
 };

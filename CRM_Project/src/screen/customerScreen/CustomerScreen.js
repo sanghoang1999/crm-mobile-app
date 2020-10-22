@@ -6,6 +6,7 @@ import CustomerCard from '../../component/CustomerCard/CustomerCard';
 import {styles} from './styles';
 import {faPlus} from '@fortawesome/free-solid-svg-icons';
 import {SCREEN_NAME} from '../../constants/Key';
+import { COLORS } from '../../constants/Theme';
 
 const CustomerScreen = ({navigation, route}) => {
   function gotoAddCustomerScreen() {
@@ -15,14 +16,14 @@ const CustomerScreen = ({navigation, route}) => {
     <View>
       <AppStatusBar />
       <View style={styles.container}>
-        <TextInput style={styles.searchBar} placeholder={'Tim kiem'} />
+        <TextInput style={styles.searchBar} placeholder={'Tìm kiếm'} />
         <ScrollView style={styles.listContainer}>
           <CustomerCard navigation={navigation} />
         </ScrollView>
         <TouchableOpacity
           style={styles.floatbtn}
           onPress={gotoAddCustomerScreen}>
-          <FontAwesomeIcon icon={faPlus} size={30} color="white" />
+          <FontAwesomeIcon icon={faPlus} size={30} color={`${COLORS.WHITE}`} />
         </TouchableOpacity>
       </View>
     </View>

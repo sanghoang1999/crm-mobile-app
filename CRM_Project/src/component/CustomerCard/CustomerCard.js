@@ -5,9 +5,9 @@ import {ImageIndex} from '../../assets/images/imageIndex';
 import {SCREEN_NAME} from '../../constants/Key';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
-const CustomerCard = (props) => {
+const CustomerCard = ({navigation}) => {
   function gotoDetail() {
-    props.navigation.navigate(SCREEN_NAME.CUSTOMER_DETAIL_SCREEN);
+    navigation.navigate(SCREEN_NAME.CUSTOMER_DETAIL_SCREEN);
   }
   return (
     <TouchableOpacity style={styles.card} onPress={gotoDetail}>
