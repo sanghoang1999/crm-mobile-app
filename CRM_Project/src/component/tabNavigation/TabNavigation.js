@@ -10,6 +10,7 @@ import {ImageIndex} from '../../assets/images/imageIndex';
 import ProfileScreen from '../../screen/profileScreen/ProfileScreen';
 import CustomerScreen from '../../screen/customerScreen/CustomerScreen';
 import NoteScreen from '../../screen/noteScreen/NoteScreen';
+import NoteDetailScreen from '../../screen/noteDetailScreen/NoteDetailScreen';
 
 const BottomTabNavigator = createBottomTabNavigator();
 
@@ -76,6 +77,14 @@ const NoteStack = () => {
         options={{
           title: 'Ghi chú',
           headerLeft: () => null,
+        }}
+      />
+      <NoteStk.Screen
+        name={SCREEN_NAME.NOTE_DETAIL_SCREEN}
+        component={NoteDetailScreen}
+        options={{
+          title: 'Chi tiết',
+          headerLeft: (props) => <HeaderBackButton {...props}  />,
         }}
       />
     </NoteStk.Navigator>
