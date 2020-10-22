@@ -10,6 +10,7 @@ import {ImageIndex} from '../../assets/images/imageIndex';
 import ProfileScreen from '../../screen/profileScreen/ProfileScreen';
 import CustomerScreen from '../../screen/customerScreen/CustomerScreen';
 import NoteScreen from '../../screen/noteScreen/NoteScreen';
+import PasswordChangeScreen from '../../screen/passwordChangingScreen/PasswordChangeScreen';
 
 const BottomTabNavigator = createBottomTabNavigator();
 
@@ -97,6 +98,13 @@ const ProfileStack = () => {
         options={{
           title: 'Tài khoản',
           headerLeft: () => null,
+        }}
+      />
+      <ProfileStk.Screen
+        name={SCREEN_NAME.PASSWORD_CHANGE}
+        component={PasswordChangeScreen}
+        options={{
+          title: 'Thay đổi mật khẩu',
         }}
       />
     </ProfileStk.Navigator>
