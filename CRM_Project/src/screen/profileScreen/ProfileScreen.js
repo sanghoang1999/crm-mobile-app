@@ -11,6 +11,12 @@ import {COLORS, viewportWidth} from '../../constants/Theme';
 import {ContainerView, OptionItem, ViewOptionItem} from './ProfileScreenStyle';
 import {ImageIndex} from '../../assets/images/imageIndex';
 import {SCREEN_NAME} from '../../constants/Key';
+import {
+  PERMISSIONS,
+  RESULTS,
+  requestMultiple,
+  openSettings,
+} from 'react-native-permissions';
 
 const ProfileScreen = ({navigation, route}) => {
   const imageHeight = viewportWidth * 0.22;
@@ -22,6 +28,60 @@ const ProfileScreen = ({navigation, route}) => {
   };
   const changePassword = () => {
     navigation.navigate(SCREEN_NAME.PASSWORD_CHANGE);
+  };
+  const options = {
+    noData: true,
+    storageOptions: {
+      skipBackup: true,
+      path: 'images',
+    },
+    quality: 0.5,
+    maxWidth: 1920,
+    maxHeight: 1080,
+  };
+  const changeAvatarHandler = () => {
+    ImagePicker.showImagePicker(options, (response) => {
+      console.log('Response = ', response);
+
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      } else if (response.customButton) {
+        console.log('User tapped custom button: ', response.customButton);
+      } else {
+        if (!response.fileName) response.fileName = path.split('/').pop();
+        // console.log(response.uri);
+        console.log(response.uri);
+        // setAvatarImageSrc(response.uri);
+        // setAvatarImage(response);
+      }
+    });
+  };
+  const requestPermission = () => {
+    requestMultiple(
+      Platform.select({
+        android: [
+          PERMISSIONS.ANDROID.CAMERA,
+          PERMISSIONS.ANDROID.WRITE_EXTERNAL_STORAGE,
+          PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE,
+        ],
+      }),
+    )
+      .then((responses) => {
+        if (Object.values(responses).every((res) => res === RESULTS.GRANTED)) {
+          console.log("Success")
+          changeAvatarHandler();  
+        } else {
+          // createTwoButtonAlert(
+          //   t('title.permission'),
+          //   t('message.camera_per_message'),
+          //   openSettings,
+          // );
+          console.log("huhu");
+        }
+      })
+      .catch((err) => console.log(err.message));
   };
   return (
     <ContainerView>
