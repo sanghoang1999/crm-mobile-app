@@ -13,6 +13,7 @@ import NoteScreen from '../../screen/noteScreen/NoteScreen';
 import NoteDetailScreen from '../../screen/noteDetailScreen/NoteDetailScreen';
 import CustomerDetailScreen from '../../screen/customerDetailScreen/customerDetailScreen';
 import CustomerAddScreen from '../../screen/customerAddScreen/customerAddScreen';
+import PasswordChangeScreen from '../../screen/passwordChangingScreen/PasswordChangeScreen';
 
 const BottomTabNavigator = createBottomTabNavigator();
 
@@ -124,6 +125,13 @@ const ProfileStack = () => {
         options={{
           title: 'Tài khoản',
           headerLeft: () => null,
+        }}
+      />
+      <ProfileStk.Screen
+        name={SCREEN_NAME.PASSWORD_CHANGE}
+        component={PasswordChangeScreen}
+        options={{
+          title: 'Thay đổi mật khẩu',
         }}
       />
     </ProfileStk.Navigator>

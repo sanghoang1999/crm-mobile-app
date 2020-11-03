@@ -31,6 +31,7 @@ const LoginScreen = ({navigation, route}) => {
   };
   return (
     <ContainerView>
+      
       <StatusBar
         translucent
         backgroundColor="transparent"

@@ -22,4 +22,5 @@ export const ImageIndex = {
   ic_calendar: require('./ic_calendar.png'),
   ic_log_out: require('./ic_log_out.png'),
   ic_change_password: require('./ic_change_password.png'),
+  ic_error: require('./ic_error.png'),
 };
