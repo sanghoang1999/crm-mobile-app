@@ -11,6 +11,8 @@ import ProfileScreen from '../../screen/profileScreen/ProfileScreen';
 import CustomerScreen from '../../screen/customerScreen/CustomerScreen';
 import NoteScreen from '../../screen/noteScreen/NoteScreen';
 import NoteDetailScreen from '../../screen/noteDetailScreen/NoteDetailScreen';
+import CustomerDetailScreen from '../../screen/customerDetailScreen/customerDetailScreen';
+import CustomerAddScreen from '../../screen/customerAddScreen/customerAddScreen';
 
 const BottomTabNavigator = createBottomTabNavigator();
 
@@ -56,6 +58,22 @@ const CustomerStack = () => {
         options={{
           title: 'Khách hàng',
           headerLeft: () => null,
+        }}
+      />
+      <ActivityStk.Screen
+        name={SCREEN_NAME.CUSTOMER_DETAIL_SCREEN}
+        component={CustomerDetailScreen}
+        options={{
+          title: 'Chi tiet khách hàng',
+          headerLeft: (props) => <HeaderBackButton {...props} />,
+        }}
+      />
+      <ActivityStk.Screen
+        name={SCREEN_NAME.CUSTOMER_ADD_SCREEN}
+        component={CustomerAddScreen}
+        options={{
+          title: 'Them khách hàng moi',
+          headerLeft: (props) => <HeaderBackButton {...props} />,
         }}
       />
     </CustomerStk.Navigator>
