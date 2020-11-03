@@ -33,7 +33,21 @@ const PasswordChangeScreen = ({navigation, route}) => {
   return (
     <ContainerView>
       <AppStatusBar />
-      <ColumnView flex={2}>
+      <ColumnView flex={1}>
+        <View
+          style={{
+            position: 'absolute',
+            bottom: 5,
+            left: 24,
+            zIndex: 3,
+          }}>
+          <ImageContainer
+            width={80}
+            height={80}
+            source={route.params.avatar ? {uri: route.params.avatar} : ImageIndex.default_avatar}
+          />
+        </View>
+        
         <RowView
           flex={2}
           justifyContent={'flex-end'}
@@ -49,77 +63,77 @@ const PasswordChangeScreen = ({navigation, route}) => {
         </RowView>
         <RowView flex={1} />
       </ColumnView>
-      <ColumnView flex={6} paddingHorizontal={PADDING.LARGE}> 
-      <Container>
-        <Formik
-          initialValues={{
-            oldPassword: '',
-            newPassword: '',
-            confirmPassword: '',
-          }}
-          validationSchema={registerSchema}
-          onSubmit={(values, actions) => {
-            console.log(values);
-            actions.resetForm();
-          }}>
-          {({
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            values,
-            setFieldValue,
-            touched,
-            errors,
-          }) => (
-            <>
-              <CommonTextInput
-                label={'Nhập mật khẩu cũ'}
-                fontSize={15}
-                isRequired
-                value={values.oldPassword}
-                onChangeText={handleChange('oldPassword')}
-                onBlur={handleBlur('oldPassword')}
-                isError={touched.oldPassword && errors.oldPassword}
-                errorMsg={errors.oldPassword}
-                secureTextEntry
-              />
-              <CommonTextInput
-                label={'Nhập mật khẩu mới'}
-                fontSize={15}
-                isRequired
-                value={values.newPassword}
-                onChangeText={handleChange('newPassword')}
-                onBlur={handleBlur('newPassword')}
-                isError={touched.newPassword && errors.newPassword}
-                errorMsg={errors.newPassword}
-                secureTextEntry
-              />
-              <CommonTextInput
-                label={'Xác nhận mật khẩu mới'}
-                fontSize={15}
-                isRequired
-                value={values.confirmPassword}
-                onChangeText={handleChange('confirmPassword')}
-                onBlur={handleBlur('confirmPassword')}
-                isError={touched.confirmPassword && errors.confirmPassword}
-                errorMsg={errors.confirmPassword}
-                secureTextEntry
-              />
-              <RowView justifyContent={'flex-end'}>
-                <CommonButton
-                  width={viewportWidth * 0.3}
-                  marginVertical={10}
-                  title={'Lưu'}
-                  onPress={handleSubmit}
-                  paddingVertical={PADDING.MEDIUM}
-                  fontSize={SIZES.MEDIUM}
-                  paddingHorizontal={PADDING.MEDIUM}
+      <ColumnView flex={2.5} paddingHorizontal={PADDING.LARGE} paddingTop={30}>
+        <Container>
+          <Formik
+            initialValues={{
+              oldPassword: '',
+              newPassword: '',
+              confirmPassword: '',
+            }}
+            validationSchema={registerSchema}
+            onSubmit={(values, actions) => {
+              console.log(values);
+              actions.resetForm();
+            }}>
+            {({
+              handleChange,
+              handleBlur,
+              handleSubmit,
+              values,
+              setFieldValue,
+              touched,
+              errors,
+            }) => (
+              <>
+                <CommonTextInput
+                  label={'Nhập mật khẩu cũ'}
+                  fontSize={15}
+                  isRequired
+                  value={values.oldPassword}
+                  onChangeText={handleChange('oldPassword')}
+                  onBlur={handleBlur('oldPassword')}
+                  isError={touched.oldPassword && errors.oldPassword}
+                  errorMsg={errors.oldPassword}
+                  secureTextEntry
                 />
-              </RowView>
-            </>
-          )}
-        </Formik>
-      </Container>
+                <CommonTextInput
+                  label={'Nhập mật khẩu mới'}
+                  fontSize={15}
+                  isRequired
+                  value={values.newPassword}
+                  onChangeText={handleChange('newPassword')}
+                  onBlur={handleBlur('newPassword')}
+                  isError={touched.newPassword && errors.newPassword}
+                  errorMsg={errors.newPassword}
+                  secureTextEntry
+                />
+                <CommonTextInput
+                  label={'Xác nhận mật khẩu mới'}
+                  fontSize={15}
+                  isRequired
+                  value={values.confirmPassword}
+                  onChangeText={handleChange('confirmPassword')}
+                  onBlur={handleBlur('confirmPassword')}
+                  isError={touched.confirmPassword && errors.confirmPassword}
+                  errorMsg={errors.confirmPassword}
+                  secureTextEntry
+                />
+                <RowView justifyContent={'flex-end'}>
+                  <CommonButton
+                    width={viewportWidth * 0.3}
+                    marginVertical={10}
+                    title={'Lưu'}
+                    onPress={handleSubmit}
+                    paddingVertical={PADDING.MEDIUM}
+                    fontSize={SIZES.MEDIUM}
+                    paddingHorizontal={PADDING.MEDIUM}
+                  />
+                </RowView>
+              </>
+            )}
+          </Formik>
+        </Container>
       </ColumnView>
     </ContainerView>
   );

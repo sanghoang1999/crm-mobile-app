@@ -8,6 +8,10 @@ export const ColumnView = styled.View`
   ${(props) => (props.alignItems ? `align-items: ${props.alignItems};` : '')}
   ${(props) =>
     props.backgroundColor ? `background-color: ${props.backgroundColor};` : ''}
+    ${(props) =>
+      props.paddingTop
+        ? `padding-top: ${props.paddingTop}px;`
+        : ''}
 `;
 export const RowView = styled.View`
   ${(props) => (props.flex ? `flex: ${props.flex};` : '')}
@@ -21,6 +25,7 @@ export const RowView = styled.View`
     props.paddingHorizontal
       ? `padding-horizontal: ${props.paddingHorizontal}px;`
       : ''}
+      
 `;
 
 export const ImageContainer = styled.Image.attrs((props) => ({

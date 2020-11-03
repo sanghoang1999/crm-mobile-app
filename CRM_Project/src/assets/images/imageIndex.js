@@ -23,4 +23,6 @@ export const ImageIndex = {
   ic_log_out: require('./ic_log_out.png'),
   ic_change_password: require('./ic_change_password.png'),
   ic_error: require('./ic_error.png'),
+  default_avatar: require('./default_avatar.png'),
+  image_addition: require('./image_addition.png'),
 };
