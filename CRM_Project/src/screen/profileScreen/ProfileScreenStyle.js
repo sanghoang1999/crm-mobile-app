@@ -1,11 +1,6 @@
 import styled from 'styled-components/native';
 import {COLORS} from '../../constants/Theme';
 
-export const ContainerView = styled.View`
-  flex: 1;
-  background-color: ${COLORS.WHITE};
-`;
-
 export const ViewOptionItem = styled.View`
   justify-content: center;
   border-top-width: 0.5px;

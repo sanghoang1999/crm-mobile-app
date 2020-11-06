@@ -14,6 +14,9 @@ import NoteDetailScreen from '../../screen/noteDetailScreen/NoteDetailScreen';
 import CustomerDetailScreen from '../../screen/customerDetailScreen/customerDetailScreen';
 import CustomerAddScreen from '../../screen/customerAddScreen/customerAddScreen';
 import PasswordChangeScreen from '../../screen/passwordChangingScreen/PasswordChangeScreen';
+import ActivityMeetingScreen from '../../screen/activityTypeScreen/ActivityMeetingScreen';
+import ActivityContactScreen from '../../screen/activityTypeScreen/ActivityContactScreen';
+import CustomerFindingScreen from '../../screen/customerFindingScreen/CustomerFindingScreen';
 
 const BottomTabNavigator = createBottomTabNavigator();
 
@@ -31,13 +34,34 @@ const ActivityStack = () => {
         },
         headerTintColor: COLORS.WHITE,
         headerTitleAlign: 'center',
-      }}>
+      }}> 
+     <ActivityStk.Screen
+        name={SCREEN_NAME.ACTIVITY_CUSTOMER_FINDING}
+        component={CustomerFindingScreen}
+        options={{
+          title: 'Tìm kiếm khách hàng',
+        }}
+      />
       <ActivityStk.Screen
         name={SCREEN_NAME.ACTIVITY_SCREEN}
         component={ActivityScreen}
         options={{
           title: 'Hoạt động',
           headerLeft: () => null,
+        }}
+      />
+      <ActivityStk.Screen
+        name={SCREEN_NAME.ACTIVITY_CONTACT}
+        component={ActivityContactScreen}
+        options={{
+          title: 'Liên lạc',
+        }}
+      />
+      <ActivityStk.Screen
+        name={SCREEN_NAME.ACTIVITY_MEETING}
+        component={ActivityMeetingScreen}
+        options={{
+          title: 'Buổi hẹn',
         }}
       />
     </ActivityStk.Navigator>
@@ -53,7 +77,7 @@ const CustomerStack = () => {
         headerTintColor: COLORS.WHITE,
         headerTitleAlign: 'center',
       }}>
-      <ActivityStk.Screen
+      <CustomerStk.Screen
         name={SCREEN_NAME.CUSTOMER_SCREEN}
         component={CustomerScreen}
         options={{
@@ -61,7 +85,7 @@ const CustomerStack = () => {
           headerLeft: () => null,
         }}
       />
-      <ActivityStk.Screen
+      <CustomerStk.Screen
         name={SCREEN_NAME.CUSTOMER_DETAIL_SCREEN}
         component={CustomerDetailScreen}
         options={{
@@ -69,7 +93,7 @@ const CustomerStack = () => {
           headerLeft: (props) => <HeaderBackButton {...props} />,
         }}
       />
-      <ActivityStk.Screen
+      <CustomerStk.Screen
         name={SCREEN_NAME.CUSTOMER_ADD_SCREEN}
         component={CustomerAddScreen}
         options={{
@@ -103,7 +127,7 @@ const NoteStack = () => {
         component={NoteDetailScreen}
         options={{
           title: 'Chi tiết',
-          headerLeft: (props) => <HeaderBackButton {...props}  />,
+          headerLeft: (props) => <HeaderBackButton {...props} />,
         }}
       />
     </NoteStk.Navigator>
@@ -118,6 +142,7 @@ const ProfileStack = () => {
         },
         headerTintColor: COLORS.WHITE,
         headerTitleAlign: 'center',
+        animationEnabled: false,
       }}>
       <ProfileStk.Screen
         name={SCREEN_NAME.PROFILE_SCREEN}

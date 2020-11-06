@@ -3,12 +3,13 @@ import AppStatusBar from '../../component/AppStatusBar/AppStatusBar';
 import {
   AppText,
   ColumnView,
+  ContainerView,
   IconContainer,
   ImageContainer,
   RowView,
 } from '../../component/style/generalComponentStyle';
 import {COLORS, viewportWidth} from '../../constants/Theme';
-import {ContainerView, OptionItem, ViewOptionItem} from './ProfileScreenStyle';
+import { OptionItem, ViewOptionItem} from './ProfileScreenStyle';
 import {ImageIndex} from '../../assets/images/imageIndex';
 import {SCREEN_NAME} from '../../constants/Key';
 import ImagePicker from 'react-native-image-picker';
