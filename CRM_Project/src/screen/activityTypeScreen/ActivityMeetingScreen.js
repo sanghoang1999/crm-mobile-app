@@ -78,14 +78,14 @@ const ActivityMeetingScreen = ({navigation, route}) => {
           width={125}
           paddingVertical={8}
         />
-        <CommonButton
+        {/* <CommonButton
           title={'THAY ĐỔI'}
           onPress={() => console.log('thay đổi')}
           buttonColor={COLORS.APP_COLOR}
           textColor={COLORS.WHITE}
           width={125}
           paddingVertical={8}
-        />
+        /> */}
       </RowView>
     </ContainerView>
   );

@@ -4,11 +4,11 @@ import {ImageIndex} from '../../assets/images/imageIndex';
 import AppStatusBar from '../../component/AppStatusBar/AppStatusBar';
 import {
   ColumnView,
+  ContainerView,
   ImageContainer,
   RowView,
 } from '../../component/style/generalComponentStyle';
 import {COLORS, PADDING, SIZES, viewportWidth} from '../../constants/Theme';
-import {ContainerView} from '../profileScreen/ProfileScreenStyle';
 import {Formik} from 'formik';
 import * as yup from 'yup';
 import CommonTextInput from '../../component/input/CommonTextInput';

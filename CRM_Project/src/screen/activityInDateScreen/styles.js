@@ -4,8 +4,6 @@ export const styles = StyleSheet.create({
     backgroundColor: 'white',
     alignItems: 'center',
     height: '100%',
-    // flex: 1,
-    // flexDirection: 'row',
   },
   searchBar: {
     fontSize: 20,

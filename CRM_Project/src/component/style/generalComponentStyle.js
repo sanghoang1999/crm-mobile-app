@@ -60,6 +60,7 @@ export const AppText = styled.Text`
   ${(props) =>
     props.textTransform ? `text-transform: ${props.textTransform};` : ''}
   ${(props) => (props.fontSize ? `font-size: ${props.fontSize}px;` : '')}
+  ${(props) => (props.fontStyle ? `font-style: ${props.fontStyle};` : '')}
   ${(props) => (props.textAlign ? `text-align: ${props.textAlign};` : '')}
   ${(props) =>
     props.textDecoration ? `text-decoration: ${props.textDecoration};` : ''}
