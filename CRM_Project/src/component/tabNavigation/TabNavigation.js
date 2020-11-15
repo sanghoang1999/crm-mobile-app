@@ -3,8 +3,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator, HeaderBackButton} from '@react-navigation/stack';
 import {BOTTOM_NAV, SCREEN_NAME} from '../../constants/Key';
 import ActivityScreen from '../../screen/activityScreen/ActivityScreen';
-import {COLORS} from '../../constants/Theme';
-import {Platform} from 'react-native';
+import {COLORS, PADDING} from '../../constants/Theme';
+import {Platform, TouchableOpacity} from 'react-native';
 import {IconContainer, ImageContainer} from '../style/generalComponentStyle';
 import {ImageIndex} from '../../assets/images/imageIndex';
 import ProfileScreen from '../../screen/profileScreen/ProfileScreen';
@@ -34,12 +34,29 @@ const ActivityStack = () => {
         headerStyle: {
           backgroundColor: COLORS.APP_COLOR,
         },
-        headerTitleStyle:{
+        headerTitleStyle: {
           fontSize: 18,
         },
         headerTintColor: COLORS.WHITE,
         headerTitleAlign: 'center',
       }}>
+      <ActivityStk.Screen
+        name={SCREEN_NAME.ACTIVITY_SCREEN}
+        component={ActivityScreen}
+        options={{
+          title: 'Hoạt động',
+          headerLeft: () => null,
+          headerRight: () => (
+            <TouchableOpacity style={{marginRight:PADDING.LARGE}} activeOpacity={0.8}>
+              <IconContainer
+                width={30}
+                height={30}
+                source={ImageIndex.ic_bell}
+              />
+            </TouchableOpacity>
+          ),
+        }}
+      />
       <ActivityStk.Screen
         name={SCREEN_NAME.ACTIVITY_IN_DATE}
         component={ActivityInDateScreen}
@@ -54,14 +71,7 @@ const ActivityStack = () => {
           title: 'Thêm hoạt động',
         }}
       />
-      <ActivityStk.Screen
-        name={SCREEN_NAME.ACTIVITY_SCREEN}
-        component={ActivityScreen}
-        options={{
-          title: 'Hoạt động',
-          headerLeft: () => null,
-        }}
-      />
+
       <ActivityStk.Screen
         name={SCREEN_NAME.ACTIVITY_CONTACT}
         component={ActivityContactScreen}
@@ -93,11 +103,12 @@ const CustomerStack = () => {
         headerStyle: {
           backgroundColor: COLORS.APP_COLOR,
         },
-        headerTitleStyle:{
+        headerTitleStyle: {
           fontSize: 18,
         },
         headerTintColor: COLORS.WHITE,
         headerTitleAlign: 'center',
+        
       }}>
       <CustomerStk.Screen
         name={SCREEN_NAME.CUSTOMER_SCREEN}
@@ -105,6 +116,15 @@ const CustomerStack = () => {
         options={{
           title: 'Khách hàng',
           headerLeft: () => null,
+          headerRight: () => (
+            <TouchableOpacity style={{marginRight:PADDING.LARGE}} activeOpacity={0.8}>
+              <IconContainer
+                width={30}
+                height={30}
+                source={ImageIndex.ic_bell}
+              />
+            </TouchableOpacity>
+          ),
         }}
       />
       <CustomerStk.Screen
@@ -133,7 +153,7 @@ const NoteStack = () => {
         headerStyle: {
           backgroundColor: COLORS.APP_COLOR,
         },
-        headerTitleStyle:{
+        headerTitleStyle: {
           fontSize: 18,
         },
         headerTintColor: COLORS.WHITE,
@@ -145,6 +165,15 @@ const NoteStack = () => {
         options={{
           title: 'Ghi chú',
           headerLeft: () => null,
+          headerRight: () => (
+            <TouchableOpacity style={{marginRight:PADDING.LARGE}} activeOpacity={0.8}>
+              <IconContainer
+                width={30}
+                height={30}
+                source={ImageIndex.ic_bell}
+              />
+            </TouchableOpacity>
+          ),
         }}
       />
       <NoteStk.Screen
@@ -165,7 +194,7 @@ const ProfileStack = () => {
         headerStyle: {
           backgroundColor: COLORS.APP_COLOR,
         },
-        headerTitleStyle:{
+        headerTitleStyle: {
           fontSize: 18,
         },
         headerTintColor: COLORS.WHITE,
@@ -178,6 +207,15 @@ const ProfileStack = () => {
         options={{
           title: 'Tài khoản',
           headerLeft: () => null,
+          headerRight: () => (
+            <TouchableOpacity style={{marginRight:PADDING.LARGE}} activeOpacity={0.8}>
+              <IconContainer
+                width={30}
+                height={30}
+                source={ImageIndex.ic_bell}
+              />
+            </TouchableOpacity>
+          ),
         }}
       />
       <ProfileStk.Screen

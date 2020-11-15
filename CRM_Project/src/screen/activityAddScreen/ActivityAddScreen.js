@@ -14,7 +14,7 @@ import {RadioButton} from 'react-native-paper';
 import {faPlus} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import TimePicker from '../../component/picker/timePicker/TimePicker';
-import {getDateTitleFormat, getTimeFormat} from '../../utils/dateFormatUtils';
+import {getDateTitleFormat} from '../../utils/dateFormatUtils';
 import { SCREEN_NAME } from '../../constants/Key';
 
 const ActivityAddScreen = ({navigation, route}) => {

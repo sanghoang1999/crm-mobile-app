@@ -17,7 +17,6 @@ import {faPlus} from '@fortawesome/free-solid-svg-icons';
 import {styles} from './styles';
 import {SCREEN_NAME} from '../../constants/Key';
 import {getDateTitleFormat} from '../../utils/dateFormatUtils';
-import CustomerFindingItem from '../../component/item/customerFindingItem/CustomerFindingItem';
 import {ImageIndex} from '../../assets/images/imageIndex';
 import ActivityDateItem from '../../component/item/activityDateItem/ActivityDateItem';
 
@@ -27,7 +26,7 @@ const ActivityInDateScreen = ({navigation, route}) => {
   };
   useEffect(() =>
     navigation.setOptions({
-      title: `${getDateTitleFormat(Date.now())}`,
+      title: `${getDateTitleFormat(route.params.date)}`,
     }),
   );
   const data = [
