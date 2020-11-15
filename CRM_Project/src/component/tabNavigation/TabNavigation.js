@@ -10,8 +10,15 @@ import {ImageIndex} from '../../assets/images/imageIndex';
 import ProfileScreen from '../../screen/profileScreen/ProfileScreen';
 import CustomerScreen from '../../screen/customerScreen/CustomerScreen';
 import NoteScreen from '../../screen/noteScreen/NoteScreen';
+import NoteDetailScreen from '../../screen/noteDetailScreen/NoteDetailScreen';
 import CustomerDetailScreen from '../../screen/customerDetailScreen/customerDetailScreen';
 import CustomerAddScreen from '../../screen/customerAddScreen/customerAddScreen';
+import PasswordChangeScreen from '../../screen/passwordChangingScreen/PasswordChangeScreen';
+import ActivityMeetingScreen from '../../screen/activityTypeScreen/ActivityMeetingScreen';
+import ActivityContactScreen from '../../screen/activityTypeScreen/ActivityContactScreen';
+import CustomerFindingScreen from '../../screen/customerFindingScreen/CustomerFindingScreen';
+import ActivityInDateScreen from '../../screen/activityInDateScreen/ActivityInDateScreen';
+import ActivityAddScreen from '../../screen/activityAddScreen/ActivityAddScreen';
 
 const BottomTabNavigator = createBottomTabNavigator();
 
@@ -27,15 +34,53 @@ const ActivityStack = () => {
         headerStyle: {
           backgroundColor: COLORS.APP_COLOR,
         },
+        headerTitleStyle:{
+          fontSize: 18,
+        },
         headerTintColor: COLORS.WHITE,
         headerTitleAlign: 'center',
       }}>
+      <ActivityStk.Screen
+        name={SCREEN_NAME.ACTIVITY_IN_DATE}
+        component={ActivityInDateScreen}
+        options={{
+          title: '',
+        }}
+      />
+      <ActivityStk.Screen
+        name={SCREEN_NAME.ACTIVITY_ADD}
+        component={ActivityAddScreen}
+        options={{
+          title: 'Thêm hoạt động',
+        }}
+      />
       <ActivityStk.Screen
         name={SCREEN_NAME.ACTIVITY_SCREEN}
         component={ActivityScreen}
         options={{
           title: 'Hoạt động',
           headerLeft: () => null,
+        }}
+      />
+      <ActivityStk.Screen
+        name={SCREEN_NAME.ACTIVITY_CONTACT}
+        component={ActivityContactScreen}
+        options={{
+          title: 'Liên lạc',
+        }}
+      />
+      <ActivityStk.Screen
+        name={SCREEN_NAME.ACTIVITY_MEETING}
+        component={ActivityMeetingScreen}
+        options={{
+          title: 'Buổi hẹn',
+        }}
+      />
+      <ActivityStk.Screen
+        name={SCREEN_NAME.ACTIVITY_CUSTOMER_FINDING}
+        component={CustomerFindingScreen}
+        options={{
+          title: 'Tìm kiếm khách hàng',
         }}
       />
     </ActivityStk.Navigator>
@@ -48,10 +93,13 @@ const CustomerStack = () => {
         headerStyle: {
           backgroundColor: COLORS.APP_COLOR,
         },
+        headerTitleStyle:{
+          fontSize: 18,
+        },
         headerTintColor: COLORS.WHITE,
         headerTitleAlign: 'center',
       }}>
-      <ActivityStk.Screen
+      <CustomerStk.Screen
         name={SCREEN_NAME.CUSTOMER_SCREEN}
         component={CustomerScreen}
         options={{
@@ -59,7 +107,7 @@ const CustomerStack = () => {
           headerLeft: () => null,
         }}
       />
-      <ActivityStk.Screen
+      <CustomerStk.Screen
         name={SCREEN_NAME.CUSTOMER_DETAIL_SCREEN}
         component={CustomerDetailScreen}
         options={{
@@ -67,11 +115,11 @@ const CustomerStack = () => {
           headerLeft: (props) => <HeaderBackButton {...props} />,
         }}
       />
-      <ActivityStk.Screen
+      <CustomerStk.Screen
         name={SCREEN_NAME.CUSTOMER_ADD_SCREEN}
         component={CustomerAddScreen}
         options={{
-          title: 'Them khách hàng moi',
+          title: 'Thêm khách hàng mới',
           headerLeft: (props) => <HeaderBackButton {...props} />,
         }}
       />
@@ -85,6 +133,9 @@ const NoteStack = () => {
         headerStyle: {
           backgroundColor: COLORS.APP_COLOR,
         },
+        headerTitleStyle:{
+          fontSize: 18,
+        },
         headerTintColor: COLORS.WHITE,
         headerTitleAlign: 'center',
       }}>
@@ -94,6 +145,14 @@ const NoteStack = () => {
         options={{
           title: 'Ghi chú',
           headerLeft: () => null,
+        }}
+      />
+      <NoteStk.Screen
+        name={SCREEN_NAME.NOTE_DETAIL_SCREEN}
+        component={NoteDetailScreen}
+        options={{
+          title: 'Chi tiết',
+          headerLeft: (props) => <HeaderBackButton {...props} />,
         }}
       />
     </NoteStk.Navigator>
@@ -106,8 +165,12 @@ const ProfileStack = () => {
         headerStyle: {
           backgroundColor: COLORS.APP_COLOR,
         },
+        headerTitleStyle:{
+          fontSize: 18,
+        },
         headerTintColor: COLORS.WHITE,
         headerTitleAlign: 'center',
+        animationEnabled: false,
       }}>
       <ProfileStk.Screen
         name={SCREEN_NAME.PROFILE_SCREEN}
@@ -115,6 +178,13 @@ const ProfileStack = () => {
         options={{
           title: 'Tài khoản',
           headerLeft: () => null,
+        }}
+      />
+      <ProfileStk.Screen
+        name={SCREEN_NAME.PASSWORD_CHANGE}
+        component={PasswordChangeScreen}
+        options={{
+          title: 'Thay đổi mật khẩu',
         }}
       />
     </ProfileStk.Navigator>

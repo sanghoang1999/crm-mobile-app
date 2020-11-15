@@ -6,7 +6,7 @@ export const ContainerView = styled.View`
   flex: 1;
   background-color: ${COLORS.WHITE};
 `;
-export const StyledKeyboardAvoidView = styled(KeyboardAvoidingView).attrs((props) => ({}))`
+export const StyledKeyboardAvoidView = styled.KeyboardAvoidingView.attrs((props) => ({}))`
   flex: 1;
 `;
 export const CircleView = styled.View`
