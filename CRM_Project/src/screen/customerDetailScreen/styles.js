@@ -10,7 +10,6 @@ export const styles = StyleSheet.create({
     backgroundColor: 'white',
     // alignItems: 'center',
     height: '100%',
-    flex: 1,
     flexDirection: 'column',
   },
   head: {
@@ -31,7 +30,7 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor: 'rgba(83, 109, 254, 1)',
-    height: 200,
+    // height: 200,
     padding: 10,
   },
   textSection: {
@@ -59,5 +58,9 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
+  },
+  listContainer: {
+    marginHorizontal: 20,
+    flex: 1,
   },
 });

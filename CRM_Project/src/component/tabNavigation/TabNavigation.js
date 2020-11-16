@@ -12,7 +12,7 @@ import CustomerScreen from '../../screen/customerScreen/CustomerScreen';
 import NoteScreen from '../../screen/noteScreen/NoteScreen';
 import NoteDetailScreen from '../../screen/noteDetailScreen/NoteDetailScreen';
 import CustomerDetailScreen from '../../screen/customerDetailScreen/customerDetailScreen';
-import CustomerAddScreen from '../../screen/customerAddScreen/customerAddScreen';
+import CustomerAddEditScreen from '../../screen/customerAddEditScreen/customerAddEditScreen';
 import PasswordChangeScreen from '../../screen/passwordChangingScreen/PasswordChangeScreen';
 import ActivityMeetingScreen from '../../screen/activityTypeScreen/ActivityMeetingScreen';
 import ActivityContactScreen from '../../screen/activityTypeScreen/ActivityContactScreen';
@@ -34,7 +34,7 @@ const ActivityStack = () => {
         headerStyle: {
           backgroundColor: COLORS.APP_COLOR,
         },
-        headerTitleStyle:{
+        headerTitleStyle: {
           fontSize: 18,
         },
         headerTintColor: COLORS.WHITE,
@@ -93,7 +93,7 @@ const CustomerStack = () => {
         headerStyle: {
           backgroundColor: COLORS.APP_COLOR,
         },
-        headerTitleStyle:{
+        headerTitleStyle: {
           fontSize: 18,
         },
         headerTintColor: COLORS.WHITE,
@@ -117,9 +117,17 @@ const CustomerStack = () => {
       />
       <CustomerStk.Screen
         name={SCREEN_NAME.CUSTOMER_ADD_SCREEN}
-        component={CustomerAddScreen}
+        component={CustomerAddEditScreen}
         options={{
           title: 'Thêm khách hàng mới',
+          headerLeft: (props) => <HeaderBackButton {...props} />,
+        }}
+      />
+      <CustomerStk.Screen
+        name={SCREEN_NAME.CUSTOMER_EDIT_SCREEN}
+        component={CustomerAddEditScreen}
+        options={{
+          title: 'Chinh sua thong tin khach hang',
           headerLeft: (props) => <HeaderBackButton {...props} />,
         }}
       />
@@ -133,7 +141,7 @@ const NoteStack = () => {
         headerStyle: {
           backgroundColor: COLORS.APP_COLOR,
         },
-        headerTitleStyle:{
+        headerTitleStyle: {
           fontSize: 18,
         },
         headerTintColor: COLORS.WHITE,
@@ -165,7 +173,7 @@ const ProfileStack = () => {
         headerStyle: {
           backgroundColor: COLORS.APP_COLOR,
         },
-        headerTitleStyle:{
+        headerTitleStyle: {
           fontSize: 18,
         },
         headerTintColor: COLORS.WHITE,
