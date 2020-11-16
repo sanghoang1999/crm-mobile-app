@@ -11,15 +11,27 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faEllipsisV} from '@fortawesome/free-solid-svg-icons';
 import {COLORS} from '../../constants/Theme';
 import {useState} from 'react';
+import {TextInput} from 'react-native';
 const NoteDetailScreen = () => {
   const [showBtn, setShowBtn] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
 
-  const title = <Text style={styles.title}>Title</Text>;
-  const content = <Text>Content</Text>;
+  var title = <Text style={styles.title}>Title</Text>;
+  var content = <Text style={{height: 100}}>Content</Text>;
+  if (isEdit) {
+    title = <TextInput defaultValue="Title" style={styles.title} />;
+    content = (
+      <TextInput
+        defaultValue="Content"
+        multipleLine={true}
+        style={{height: 200, textAlignVertical: 'top'}}
+      />
+    );
+  }
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Title</Text>
+        {title}
         <TouchableOpacity
           onPress={() => {
             setShowBtn((prev) => !prev);
@@ -34,7 +46,12 @@ const NoteDetailScreen = () => {
       <ScrollView style={styles.contentWrap}>
         {showBtn && (
           <View style={styles.btnGroup}>
-            <TouchableOpacity style={styles.btn}>
+            <TouchableOpacity
+              style={styles.btn}
+              onPress={() => {
+                setIsEdit(true);
+                setShowBtn(false);
+              }}>
               <Text>Chinh sua</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.btn}>
@@ -42,7 +59,7 @@ const NoteDetailScreen = () => {
             </TouchableOpacity>
           </View>
         )}
-        <Text style={{height: 100}}>Content</Text>
+        {content}
       </ScrollView>
     </View>
   );
@@ -58,7 +75,7 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: '#9EACFA',
     paddingHorizontal: 20,
-    paddingVertical: 20,
+    alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
     height: '10%',
@@ -80,6 +97,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'flex-start',
     flex: 1,
+    zIndex: 5,
   },
   btn: {
     paddingVertical: 10,
