@@ -10,7 +10,6 @@ export const styles = StyleSheet.create({
   searchBar: {
     fontSize: 20,
     margin: 10,
-    width: '90%',
     height: 50,
     backgroundColor: 'white',
     borderColor: 'rgba(204, 204, 204, 1)',
