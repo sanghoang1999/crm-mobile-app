@@ -1,9 +1,9 @@
 import { Injectable, HttpException, UnauthorizedException } from '@nestjs/common';
-import { AddAdminDto } from './dto/admin-dto';
+import { AddAdminDto } from './dto/admin.dto';
 import { Password } from '../utils/password';
 import { AdminRepository } from './admin.repository';
 import { AdminEntity } from './admin.entity';
-import { SignInDto } from './signin-dto';
+import { SignInDto } from './dto/signin.dto';
 import { JwtService } from '@nestjs/jwt';
 
 @Injectable()

@@ -15,7 +15,6 @@ export class AddAdminDto {
     name: string;
 
 
-    @IsNotEmpty()
     @IsString()
     phoneNumber: string;
 

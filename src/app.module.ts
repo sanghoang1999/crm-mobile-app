@@ -6,6 +6,7 @@ import {ConfigModule,ConfigService} from '@nestjs/config'
 import { UserModule } from './user/user.module';
 import { AdminModule } from './admin/admin.module';
 import {SnakeNamingStrategy} from 'typeorm-naming-strategies'
+import { SocialMediaModule } from './social-media/social-media.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -27,11 +28,13 @@ import {SnakeNamingStrategy} from 'typeorm-naming-strategies'
         ssl:{
           rejectUnauthorized:false
         },
+        logging:true,
         namingStrategy: new SnakeNamingStrategy()
       })
     }),
     UserModule,
     AdminModule,
+    SocialMediaModule,
   ],
   controllers: [AppController],
   providers: [AppService],
