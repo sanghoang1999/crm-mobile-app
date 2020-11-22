@@ -3,41 +3,39 @@ import { AddUserDto } from './dto/add-user.dto';
 import { UserRepository } from './user.repository';
 import { UserEntity } from './user.entity';
 import { getPriority } from 'os';
-import { getRepository, Connection } from 'typeorm';
+import { getRepository } from 'typeorm';
 import { SocialEntity } from '../social-media/social-media.entity';
-import { async } from 'rxjs';
 
 @Injectable()
 export class UserService {
   constructor(
-    private userRepository:UserRepository,
-    private connection: Connection,
-    
+    private userRepository:UserRepository
   ){}
 
   async createUser(addUserDto:AddUserDto) {
+    console.log(addUserDto)
     const {userName,phone,address,socials} = addUserDto
     const user = new UserEntity();
     user.userName = userName,
     user.phone = phone,
     user.address = address
+    const newUser = await user.save();
 
-    let  response;
-    await this.connection.transaction( async manager => {
-       response = await manager.save(user);
-
-      if(socials.length > 0) {
+    if(socials.length > 0) {
       const data = socials.map(social=> {
         return {
-          ...socials,
-          userId:response.id
+          ...social,
+          userId:newUser.id
         }
       })
-      await manager.getRepository(SocialEntity).insert([...data])
+      console.log(data)
+      const a = new SocialEntity();
+      await getRepository(SocialEntity).insert([
+        ...data
+      ])
     }
-    })
 
-    return response
+    return {data:newUser}
   }
 
   async getListUser() {
