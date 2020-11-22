@@ -3,19 +3,22 @@ import {Button, Image, Text, View} from 'react-native';
 import AppStatusBar from '../../component/AppStatusBar/AppStatusBar';
 import {styles} from './styles';
 import {ImageIndex} from '../../assets/images/imageIndex';
-import {ImageContainer} from '../../component/style/generalComponentStyle';
-import {viewportHeight, viewportWidth} from '../../constants/Theme';
 import Badge from '../../component/Badge/Badge';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
 import {RadioButton} from 'react-native-paper';
-import {ACTIVITY_TYPE} from '../../constants/Key';
+import {ACTIVITY_TYPE, SCREEN_NAME} from '../../constants/Key';
+import ContactHistoryCard from '../../component/ContactHistoryCard/ContactHistoryCard';
 
 const CustomerDetailScreen = (props) => {
   const [checked, setChecked] = useState(ACTIVITY_TYPE.APPOINTMENT);
+  const goToEdit = () => {
+    props.navigation.navigate(SCREEN_NAME.CUSTOMER_EDIT_SCREEN);
+  };
+
   return (
     <View>
       <AppStatusBar />
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <View style={styles.head}>
           <TouchableOpacity style={styles.avatar}>
             <Badge value={'+'} />
@@ -45,12 +48,12 @@ const CustomerDetailScreen = (props) => {
             </Text>
           </View>
           <Button
-            onPress={() => {}}
+            onPress={goToEdit}
             title="Chinh sua"
             color="rgba(83, 109, 254, 1)"
           />
         </View>
-        <View style={{...styles.card, height: 130}}>
+        <View style={styles.card}>
           <Text style={styles.textSection}>Hoat dong sap toi</Text>
           <View style={styles.radiogroup}>
             <View style={styles.radio}>
@@ -90,7 +93,14 @@ const CustomerDetailScreen = (props) => {
             <Text style={styles.content}>lkjaklwjfijdf</Text>
           </View>
         </View>
-      </View>
+        <Text style={{...styles.textSection, marginLeft: 30}}>
+          Lich su lien lac
+        </Text>
+        <View style={styles.listContainer}>
+          <ContactHistoryCard />
+          <ContactHistoryCard />
+        </View>
+      </ScrollView>
     </View>
   );
 };

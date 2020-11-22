@@ -6,7 +6,7 @@ import CustomerCard from '../../component/CustomerCard/CustomerCard';
 import {styles} from './styles';
 import {faPlus} from '@fortawesome/free-solid-svg-icons';
 import {SCREEN_NAME} from '../../constants/Key';
-import { COLORS } from '../../constants/Theme';
+import {COLORS} from '../../constants/Theme';
 
 const CustomerScreen = ({navigation, route}) => {
   function gotoAddCustomerScreen() {
