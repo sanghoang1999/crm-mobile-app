@@ -8,7 +8,6 @@ export class AddSocialDto  {
   @IsNotEmpty()
   link:string
 
-  userId:string
-
+  socialId?:number
 
 }

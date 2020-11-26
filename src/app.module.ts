@@ -7,6 +7,7 @@ import { UserModule } from './user/user.module';
 import { AdminModule } from './admin/admin.module';
 import {SnakeNamingStrategy} from 'typeorm-naming-strategies'
 import { SocialMediaModule } from './social-media/social-media.module';
+import { ActivityModule } from './activity/activity.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -35,6 +36,7 @@ import { SocialMediaModule } from './social-media/social-media.module';
     UserModule,
     AdminModule,
     SocialMediaModule,
+    ActivityModule,
   ],
   controllers: [AppController],
   providers: [AppService],
