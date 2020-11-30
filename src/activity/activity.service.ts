@@ -22,4 +22,16 @@ export class ActivityService {
     })
     return acts
   }
+
+  async searchActivity(date:Date) {
+    const query = this.activityRepository.createQueryBuilder('a')
+    query.where(`a.createdAt ::date = '${date}'::date`)
+
+    return await query.getMany();
+  }
+
+  async deleteActivity(id:string) {
+    await this.activityRepository.delete(id);
+    return {message:'Delete successfully'}
+  }
 }

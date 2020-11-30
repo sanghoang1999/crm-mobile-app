@@ -3,7 +3,7 @@ import { AddUserDto } from './dto/add-user.dto';
 import { UserRepository } from './user.repository';
 import { UserEntity } from './user.entity';
 import { getPriority } from 'os';
-import { getRepository, Connection } from 'typeorm';
+import { getRepository, Connection, Like } from 'typeorm';
 import { SocialEntity } from '../social-media/social-media.entity';
 import { async } from 'rxjs';
 import { parse } from 'path';
@@ -83,7 +83,17 @@ export class UserService {
       where:{
         id:id
       },
-      relations:['socials']
+      relations:['socials','activities']
+    })
+    return users
+  }
+
+  async searchUser(name:string) {
+    console.log(name)
+    const users = await this.userRepository.find({
+      where:{
+        userName: Like(`%${name}%`)
+      },
     })
     return users
   }

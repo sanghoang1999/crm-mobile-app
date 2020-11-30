@@ -1,4 +1,4 @@
-import { Controller, Post, UseGuards, Body, ValidationPipe, Get, Query } from '@nestjs/common';
+import { Controller, Post, UseGuards, Body, ValidationPipe, Get, Query, Delete } from '@nestjs/common';
 import { AdminGuard } from '../guards/admin.guard';
 import { AddActivityDto } from './dto/add-activity.dto';
 import { ActivityService } from './activity.service';
@@ -24,6 +24,23 @@ export class ActivityController {
     @Query('id') id:string
   ) {
     return this.activityService.getActivityById(id)
+  }
+
+  @Get('/search')
+  @UseGuards(AdminGuard)
+  searchActivity(
+    @Query('date') date:Date
+  ) {
+    return this.activityService.searchActivity(date)
+  }
+
+
+  @Delete('/delete')
+  @UseGuards(AdminGuard)
+  deleteActivity(
+    @Query('id') id:string
+  ) {
+    return this.activityService.deleteActivity(id)
   }
 
   @Get('/list-activity')

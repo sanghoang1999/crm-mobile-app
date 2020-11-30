@@ -1,10 +1,11 @@
-import { Injectable, HttpException, UnauthorizedException } from '@nestjs/common';
+import { Injectable, HttpException, UnauthorizedException, BadRequestException } from '@nestjs/common';
 import { AddAdminDto } from './dto/admin.dto';
 import { Password } from '../utils/password';
 import { AdminRepository } from './admin.repository';
 import { AdminEntity } from './admin.entity';
 import { SignInDto } from './dto/signin.dto';
 import { JwtService } from '@nestjs/jwt';
+import { ChangePasswordDto } from './dto/change-password.dto';
 
 @Injectable()
 export class AdminService {
@@ -42,5 +43,23 @@ export class AdminService {
     }
     const token = this.jwtService.sign(payload);
     return {token}
+  }
+
+  async changePassword(admin:AdminEntity,changePasswordDto:ChangePasswordDto) {
+    const {oldPassword,newPassowrd} = changePasswordDto
+    const {id} = admin
+    const oldUser = await this.adminRepository.findOne({
+      where:{
+        id,
+      },
+    })
+    const check = await Password.compare(oldUser.password,oldPassword)
+    if(!check)  {
+      throw new BadRequestException("Password is not corret")
+    }
+    const newPass = await Password.toHash(newPassowrd)
+    oldUser.password = newPass;
+    const newAdmin = await oldUser.save();
+    return newAdmin
   }
 }

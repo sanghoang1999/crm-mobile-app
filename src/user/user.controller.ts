@@ -1,4 +1,4 @@
-import { Controller, Post, Body, ValidationPipe, UseGuards, Get, Put, Query } from '@nestjs/common';
+import { Controller, Post, Body, ValidationPipe, UseGuards, Get, Put, Query, Patch } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { AddUserDto } from './dto/add-user.dto';
 import { UserService } from './user.service';
@@ -36,6 +36,15 @@ export class UserController {
     return this.userService.getUserById(id)
   }
 
+  @Get('/search')
+  @UseGuards(AdminGuard)
+  searchUser(
+    @Query('name') name:string
+  ) {
+    return this.userService.searchUser(name)
+  }
+
+
 
   @Put('/update-user')
   @UseGuards(AdminGuard)
@@ -45,5 +54,6 @@ export class UserController {
   ) {
     return this.userService.updateUser(id,addUserDto)
   }
+
 
 }

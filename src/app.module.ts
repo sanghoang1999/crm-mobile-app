@@ -8,6 +8,7 @@ import { AdminModule } from './admin/admin.module';
 import {SnakeNamingStrategy} from 'typeorm-naming-strategies'
 import { SocialMediaModule } from './social-media/social-media.module';
 import { ActivityModule } from './activity/activity.module';
+import { NoteModule } from './note/note.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -37,6 +38,7 @@ import { ActivityModule } from './activity/activity.module';
     AdminModule,
     SocialMediaModule,
     ActivityModule,
+    NoteModule,
   ],
   controllers: [AppController],
   providers: [AppService],
