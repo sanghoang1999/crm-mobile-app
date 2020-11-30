@@ -4,7 +4,7 @@ import { AdminGuard } from '../guards/admin.guard';
 import { NoteService } from './note.service';
 import { AddNoteDto } from './dto/add-note.dto';
 
-@ApiTags()
+@ApiTags('Note')
 @Controller('note')
 export class NoteController {
   constructor(
