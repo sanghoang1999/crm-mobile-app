@@ -30,7 +30,7 @@ export class UserService {
       if(socials.length > 0) {
       const data = socials.map(social=> {
         return {
-          ...socials,
+          ...social,
           userId:response.id
         }
       })
