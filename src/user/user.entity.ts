@@ -1,4 +1,4 @@
-import { BaseEntity, PrimaryGeneratedColumn, Column, Entity, OneToMany } from "typeorm";
+import { BaseEntity, PrimaryGeneratedColumn, Column, Entity, OneToMany,  } from "typeorm";
 import { SocialEntity } from '../social-media/social-media.entity';
 import { ActivityEntity } from '../activity/activity.entity';
 

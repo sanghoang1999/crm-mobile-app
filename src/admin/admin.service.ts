@@ -60,6 +60,11 @@ export class AdminService {
     const newPass = await Password.toHash(newPassowrd)
     oldUser.password = newPass;
     const newAdmin = await oldUser.save();
-    return newAdmin
+    const payload = {
+      userName:newAdmin.userName,
+      role:newAdmin.level
+    }
+    const token = this.jwtService.sign(payload);
+    return {token}
   }
 }
