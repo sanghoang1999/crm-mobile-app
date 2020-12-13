@@ -13,18 +13,18 @@ export class ActivityService {
     return ({code:200,message:"Create Successfully"})
   }
   async getActivityById(id:string) {
-    const act = this.activityRepository.findOne(id);
+    const act = await this.activityRepository.findOne(id);
     return act
   }
   async getListActivity() {
-    const acts = this.activityRepository.find({
+    const acts = await this.activityRepository.find({
       relations:['user']
     })
     return acts
   }
 
   async searchActivity(date:Date) {
-    const query = this.activityRepository.createQueryBuilder('a')
+    const query =  this.activityRepository.createQueryBuilder('a')
     query.where(`a.createdAt ::date = '${date}'::date`)
 
     return await query.getMany();
