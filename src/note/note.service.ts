@@ -35,6 +35,7 @@ export class NoteService {
   }
   async getNoteById(id:string) {
     const note = await this.noteRepository.findOne(id)
+    console.log(note)
     if(!note) {
       throw new  NotFoundException('Note not found')
     }
@@ -42,6 +43,7 @@ export class NoteService {
   }
 
   async deleteNote(id:string) {
+    console.log("debugggggg", id)
     const row = await this.noteRepository.delete(id);
     if(row.affected === 0) {
       throw new NotFoundException('Note not found')

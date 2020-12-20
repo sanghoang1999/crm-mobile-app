@@ -40,4 +40,17 @@ export class ActivityService {
     await this.activityRepository.delete(id);
     return {message:'Delete successfully'}
   }
+
+  async getActivityByUser(userId: string){
+    console.log("debugggg", userId)
+    const result = await this.activityRepository.find({
+      where:[
+        {
+          userId: userId
+        }
+      ]
+    });
+    console.log("debuggg", result)
+    return result;
+  }
 }

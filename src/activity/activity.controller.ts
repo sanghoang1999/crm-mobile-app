@@ -49,4 +49,12 @@ export class ActivityController {
   ) {
     return this.activityService.getListActivity()
   }
+
+  @Get('/list-activity-by-user')
+  @UseGuards(AdminGuard)
+  getListActivityByUser(
+    @Query("userId") userId: string, 
+  ){
+    return this.activityService.getActivityByUser(userId);
+  }
 }
