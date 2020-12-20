@@ -13,7 +13,12 @@ export class ActivityService {
     return ({code:200,message:"Create Successfully"})
   }
   async getActivityById(id:string) {
-    const act = await this.activityRepository.findOne(id);
+    const act = await this.activityRepository.findOne({
+      where: {
+        id:id
+      },
+      relations:['user']
+    });
     return act
   }
   async getListActivity() {
@@ -25,7 +30,8 @@ export class ActivityService {
 
   async searchActivity(date:Date) {
     const query =  this.activityRepository.createQueryBuilder('a')
-    query.where(`a.createdAt ::date = '${date}'::date`)
+        .leftJoinAndSelect('a.user','user')
+    query.where(`a.startDate ::date = '${date}'::date`)
 
     return await query.getMany();
   }
