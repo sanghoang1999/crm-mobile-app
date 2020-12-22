@@ -9,6 +9,7 @@ import {SnakeNamingStrategy} from 'typeorm-naming-strategies'
 import { SocialMediaModule } from './social-media/social-media.module';
 import { ActivityModule } from './activity/activity.module';
 import { NoteModule } from './note/note.module';
+import { EmailTemplateModule } from './email-template/email-template.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -39,6 +40,7 @@ import { NoteModule } from './note/note.module';
     SocialMediaModule,
     ActivityModule,
     NoteModule,
+    EmailTemplateModule,
   ],
   controllers: [AppController],
   providers: [AppService],
