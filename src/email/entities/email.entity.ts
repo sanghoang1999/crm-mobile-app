@@ -1,8 +1,8 @@
 
 import { BaseEntity, PrimaryGeneratedColumn, Column, Entity, ManyToOne, JoinColumn } from "typeorm";
 
-@Entity({schema:'public',name:'email_template'})
-export class EmailTemplate extends BaseEntity {
+@Entity({schema:'public',name:'email'})
+export class Email extends BaseEntity {
   @PrimaryGeneratedColumn()
   id:string
 
@@ -10,14 +10,13 @@ export class EmailTemplate extends BaseEntity {
   name:string
 
   @Column()
-  emailTemplateType:string;
+  subject:string;
 
-  @Column()
-  imageSrc:string;
   
   @Column({type:'json'})
   emailSchema:JSON
 
   @Column()
   emailBody:string
+
 }

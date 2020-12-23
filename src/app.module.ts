@@ -10,6 +10,7 @@ import { SocialMediaModule } from './social-media/social-media.module';
 import { ActivityModule } from './activity/activity.module';
 import { NoteModule } from './note/note.module';
 import { EmailTemplateModule } from './email-template/email-template.module';
+import { EmailModule } from './email/email.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -41,6 +42,7 @@ import { EmailTemplateModule } from './email-template/email-template.module';
     ActivityModule,
     NoteModule,
     EmailTemplateModule,
+    EmailModule,
   ],
   controllers: [AppController],
   providers: [AppService],

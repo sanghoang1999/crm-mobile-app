@@ -24,7 +24,7 @@ export class EmailTemplateController {
 
   @Put(':id')
   update(@Param('id') id: string, @Body() updateEmailTemplateDto: UpdateEmailTemplateDto) {
-    return this.emailTemplateService.update(+id, updateEmailTemplateDto);
+    return this.emailTemplateService.update(id, updateEmailTemplateDto);
   }
 
   @Delete(':id')

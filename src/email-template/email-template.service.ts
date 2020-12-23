@@ -11,20 +11,22 @@ export class EmailTemplateService {
     @InjectRepository(EmailTemplate)
     private repo :Repository<EmailTemplate>
   ){}
-  create(createEmailTemplateDto: CreateEmailTemplateDto) {
-    return 'This action adds a new emailTemplate';
+  async create(createEmailTemplateDto: CreateEmailTemplateDto) {
+    
   }
 
   async findAll() {
-    return await this.repo.find({})
+    return await this.repo.find({
+      select:['id','emailTemplateType','imageSrc']
+    })
   }
 
   async findOne(id: string) {
     return await this.repo.findOne(id)
   }
 
-  update(id: number, updateEmailTemplateDto: UpdateEmailTemplateDto) {
-    return `This action updates a #${id} emailTemplate`;
+  async update(id: string, updateEmailTemplateDto: UpdateEmailTemplateDto) {
+    return await this.repo.update({id},updateEmailTemplateDto) 
   }
 
   remove(id: number) {
